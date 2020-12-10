@@ -213,14 +213,13 @@ tail -f run.log
 
 ```
 
-
 ### 11.5 modify crontab-修改定时执行策略
 
 > linux crontab online tool:https://tool.lu/crontab
 >
 > need restart curator container
-> for example:     0 1 * * *
-
+>
+> crontab for example:     0 1 * * *
 
 ```shell
 cd extensions/curator/cron
