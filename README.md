@@ -168,4 +168,67 @@ curl -XPUT -u ryan:ryan123 http://localhost:9200/_xpack/security/user/elastic/_p
 }'
 ```
 
+## 11 curator
+
+> 定期删除ES索引，比如删除3天前的索引
+
+### 11.1 build image
+
+```shell
+cd extensions/curator
+docker build -t curator:comm .
+docker images
+```
+
+### 11.2 start curator
+
+```shell
+docker-compose up -d curator
+
+docker-compose ps
+
+docker exec -it curator /bin/bash
+```
+
+### 11.3 log
+
+```shell
+cd extensions/curator/logs/
+
+tail -f run.log
+```
+
+### 11.4 modify delete_log_files_curator.yml-添加删除策略
+
+> no need restart curator container
+
+```shell
+cd extensions/curator/config
+
+vim delete_log_files_curator.yml
+
+cd extensions/curator/logs/
+
+tail -f run.log
+
+```
+
+### 11.5 modify crontab-修改定时执行策略
+
+> linux crontab online tool:https://tool.lu/crontab
+
+```shell
+cd extensions/curator/cron
+
+vim crontab
+
+cd ../../..
+
+docker-compose restart curator
+
+cd extensions/curator/logs/
+
+tail -f run.log
+```
+
 

@@ -102,6 +102,23 @@ services:
     environment:
       - ELASTICSEARCH_URL=http://es01:9200
       - xpack.security.enabled=true
+
+  curator:
+    image: curator:comm
+    user: root
+    container_name: curator
+    volumes:
+      - ./extensions/curator/config:/usr/share/curator/config 
+      - ./extensions/curator/logs:/opt/elasticsearch-curator/logs
+      - ./extensions/curator/cron/crontab:/etc/crontab
+      - /etc/localtime:/etc/localtime
+    networks:
+      - elk
+    depends_on:
+      - es01
+      - es02
+      - es03
+
 volumes:
   esdata01:
     driver: local
