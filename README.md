@@ -219,6 +219,8 @@ tail -f run.log
 > linux crontab online tool:https://tool.lu/crontab
 >
 > need restart curator container
+> for example:     0 1 * * *
+
 
 ```shell
 cd extensions/curator/cron
