@@ -197,6 +197,21 @@ cd extensions/curator/logs/
 
 tail -f run.log
 ```
+log look like:
+
+```shell
+2020-12-10 10:58:02,358 INFO      Deleting 5 selected indices: ['aos-webmanage-api-2020.12.02', 'aos-webmanage-api-2020.12.07', 'aos-webmanage-api-2020.12.03', 'aos-webmanage-api-2020.12.04', 'aos-webmanage-api-2020.12.05']
+2020-12-10 10:58:02,358 INFO      ---deleting index aos-webmanage-api-2020.12.02
+2020-12-10 10:58:02,358 INFO      ---deleting index aos-webmanage-api-2020.12.07
+2020-12-10 10:58:02,358 INFO      ---deleting index aos-webmanage-api-2020.12.03
+2020-12-10 10:58:02,358 INFO      ---deleting index aos-webmanage-api-2020.12.04
+2020-12-10 10:58:02,358 INFO      ---deleting index aos-webmanage-api-2020.12.05
+2020-12-10 10:58:02,738 INFO      Action ID: 2, "delete_indices" completed.
+2020-12-10 10:58:02,738 INFO      Job completed.
+2020-12-10 10:59:02,766 INFO      Preparing Action ID: 1, "delete_indices"
+```
+
+### 
 
 ### 11.4 modify delete_log_files_curator.yml-添加删除策略
 
